@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بوت ذكرني | Telegram Bot</title>
+  <style>
+    :root {
+      --main-orange: #d66a1f;
+      --dark-orange: #a94f16;
+      --light-cream: #f4efe6;
+      --soft-cream: #e8dcc6;
+      --text-dark: #3b2a1a;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: linear-gradient(135deg, var(--light-cream), var(--soft-cream));
+      color: var(--text-dark);
+    }
+    header {
+      padding: 70px 20px;
+      text-align: center;
+      background: radial-gradient(circle at top, var(--main-orange), var(--dark-orange));
+      color: #fff;
+    }
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+    header p {
+      font-size: 18px;
+      opacity: 0.95;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 30px;
+      background: #fff;
+      color: var(--dark-orange);
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 14px;
+      font-weight: bold;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+    section h2 {
+      color: var(--dark-orange);
+      margin-bottom: 25px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+      border-top: 5px solid var(--main-orange);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: var(--main-orange);
+    }
+    .card p {
+      color: #4a3724;
+    }
+    footer {
+      text-align: center;
+      padding: 35px;
+      background: var(--dark-orange);
+      color: #fff;
+      font-size: 14px;
+    }
+      .feature-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: var(--main-orange);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .feature-btn:hover {
+      background: var(--dark-orange);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🤖 بوت ذكرني</h1>
+    <p>بوت إسلامي متكامل للأذكار، القرآن الكريم، وأوقات الصلاة</p>
+    <a class="btn" href="https://t.me/Islamicc_bot" target="_blank">🚀 افتح البوت على تيليجرام</a>
+  </header>
+
+  <section>
+    <h2>✨ مميزات البوت</h2>
+    <div class="features">
+      <div class="card">
+        <h3>📖 قراءة القرآن</h3>
+        <p>افتح المصحف مباشرة بواجهة مريحة بدون إزعاج الشات.</p>
+        <a class="feature-btn" href="quranPage.html">الدخول</a>
+      </div>
+      <div class="card">
+        <h3>📿 الأذكار</h3>
+        <p>أذكار الصباح والمساء وأذكار بعد الصلاة.</p>
+        <a class="feature-btn" href="#adhkar">الدخول</a>
+      </div>
+      <div class="card">
+        <h3>🕌 أوقات الصلاة</h3>
+        <p>تنبيهات دقيقة لأوقات الأذان حسب مدينتك.</p>
+        <a class="feature-btn" href="#prayer">الدخول</a>
+      </div>
+      <div class="card">
+        <h3>⏱️ نظام الختمة</h3>
+        <p>حدد عدد الصفحات اليومية وتابع تقدمك.</p>
+        <a class="feature-btn" href="thatma">الدخول</a>
+      </div>
+  </section>
+
+  <section>
+    <h2>❓ لماذا بوت ذكرني؟</h2>
+    <p>
+      لأن الذكر راحة للقلب، وهذا البوت صُمم ليساعدك على الاستمرار
+      في الذكر وقراءة القرآن بدون تعقيد.
+    </p>
+  </section>
+
+  <footer>
+    © 2026 بوت ذكرني – جميع الحقوق محفوظة
+  </footer>
+
+</body>
+</html>
