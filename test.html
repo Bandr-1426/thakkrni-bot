@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>قريباً</title>
+
+  <style>
+    :root {
+      --main-orange: #d66a1f;
+      --dark-orange: #a94f16;
+      --light-cream: #f4efe6;
+      --soft-cream: #e8dcc6;
+      --text-dark: #3b2a1a;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: linear-gradient(135deg, var(--light-cream), var(--soft-cream));
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: radial-gradient(circle at top, var(--main-orange), var(--dark-orange));
+      color: #fff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .container {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .coming-box {
+      background: #fff;
+      padding: 30px 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      border-top: 4px solid var(--main-orange);
+    }
+
+    .coming-box h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: var(--text-dark);
+    }
+
+    .coming-box p {
+      margin: 0;
+      font-size: 18px;
+      color: #6b4b2e;
+    }
+
+    .home-btn {
+      margin-top: 25px;
+      padding: 10px 26px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background: var(--main-orange);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .home-btn:hover {
+      background: var(--dark-orange);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #6b4b2e;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="coming-box">
+    <h2>قريباً...</h2>
+    <p>هذه الصفحة قيد التطوير حالياً، ترقّبوا التحديثات القادمة بإذن الله.</p>
+    <a href="index.html" class="home-btn">العودة للصفحة الرئيسية</a>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 - موقع القرآن الكريم
+</footer>
+
+</body>
+</html>
