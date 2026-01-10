@@ -110,9 +110,13 @@
 
 
   </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
 </head>
 
 <body>
+
 
 <header>
   <h1>📖 القرآن الكريم</h1>
@@ -314,7 +318,8 @@ function openSurah(name) {
 
 }
 </script>
-
+<div id="viewer" style="display:none; margin-top:20px;">
+  <canvas id="pdfCanvas" style="width:100%; border-radius:14px; border:2px solid #d66a1f;"></canvas>
+</div>
 </body>
 </html>
-
