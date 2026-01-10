@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>القرآن الكريم</title>
+
   <style>
     :root {
       --main-orange: #d66a1f;
@@ -27,6 +28,7 @@
       color: #fff;
       position: sticky;
       top: 0;
+      z-index: 10;
     }
 
     header h1 {
@@ -35,7 +37,7 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
       padding: 20px;
     }
@@ -46,135 +48,271 @@
       gap: 15px;
     }
 
-.surah {
-  background: #fff;
-  padding: 15px;
-  border-radius: 14px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  border-top: 4px solid var(--main-orange);
-  text-decoration: none;
-  color: var(--text-dark);
-  font-weight: bold;
-  transition: 0.2s;
-}
+    .surah {
+      background: #fff;
+      padding: 15px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border-top: 4px solid var(--main-orange);
+      color: var(--text-dark);
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-.surah:hover {
-  background: var(--main-orange); /* الخلفية تصير برتقالي */
-  color: #fff; /* الخط يصير أبيض */
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-}
+    .surah:hover {
+      background: var(--main-orange);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    }
 
+    #viewer {
+      display: none;
+      margin-top: 30px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 900px;
+      border-radius: 14px;
+      border: 2px solid var(--main-orange);
+      background: #fff;
+    }
 
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 20px;
+      font-size: 18px;
       color: #6b4b2e;
-    }
+      }
+      .reload-btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 12px;
+    background: var(--main-orange);
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  }
+
+  .reload-btn:hover {
+      background: var(--main-white);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  }
+
+
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>📖 القرآن الكريم</h1>
+  <button class="reload-btn" onclick="window.location.reload();">
+  🔄 تحديث الصفحة
+</button>
+
 </header>
 
 <div class="container">
+
   <div class="surah-list">
-
-    <!-- مثال الربط: quran/001.pdf -->
-  <a class="surah" href="quran.pdf"> القران الكريم كاملا </a>
-  <a class="surah" href="quran.pdf"> الفاتحة</a>
-  <a class="surah" href="quran/002.pdf"> البقرة</a>
-  <a class="surah" href="quran/003.pdf"> آل عمران</a>
-  <a class="surah" href="quran/004.pdf"> النساء</a>
-  <a class="surah" href="quran/005.pdf"> المائدة</a>
-  <a class="surah" href="quran/006.pdf"> الأنعام</a>
-  <a class="surah" href="quran/007.pdf"> الأعراف</a>
-  <a class="surah" href="quran/008.pdf"> الأنفال</a>
-  <a class="surah" href="quran/009.pdf"> التوبة</a>
-  <a class="surah" href="quran/010.pdf"> يونس</a>
-  <a class="surah" href="quran/011.pdf"> هود</a>
-  <a class="surah" href="quran/012.pdf"> يوسف</a>
-  <a class="surah" href="quran/013.pdf"> الرعد</a>
-  <a class="surah" href="quran/014.pdf"> إبراهيم</a>
-  <a class="surah" href="quran/015.pdf"> الحجر</a>
-  <a class="surah" href="quran/016.pdf"> النحل</a>
-  <a class="surah" href="quran/017.pdf"> الإسراء</a>
-  <a class="surah" href="quran_018.pdf"> الكهف</a>
-  <a class="surah" href="quran/019.pdf"> مريم</a>
-  <a class="surah" href="quran/020.pdf"> طه</a>
-  <a class="surah" href="quran/021.pdf"> الأنبياء</a>
-  <a class="surah" href="quran/022.pdf"> الحج</a>
-  <a class="surah" href="quran/023.pdf"> المؤمنون</a>
-  <a class="surah" href="quran/024.pdf"> النور</a>
-  <a class="surah" href="quran/025.pdf"> الفرقان</a>
-  <a class="surah" href="quran/026.pdf"> الشعراء</a>
-  <a class="surah" href="quran/027.pdf"> النمل</a>
-  <a class="surah" href="quran/028.pdf"> القصص</a>
-  <a class="surah" href="quran/029.pdf"> العنكبوت</a>
-  <a class="surah" href="quran/030.pdf"> الروم</a>
-  <a class="surah" href="quran/031.pdf"> لقمان</a>
-  <a class="surah" href="quran/032.pdf"> السجدة</a>
-  <a class="surah" href="quran/033.pdf"> الأحزاب</a>
-  <a class="surah" href="quran/034.pdf"> سبأ</a>
-  <a class="surah" href="quran/035.pdf"> فاطر</a>
-  <a class="surah" href="quran/036.pdf"> يس</a>
-  <a class="surah" href="quran/037.pdf"> الصافات</a>
-  <a class="surah" href="quran/038.pdf"> ص</a>
-  <a class="surah" href="quran/039.pdf"> الزمر</a>
-  <a class="surah" href="quran/040.pdf"> غافر</a>
-  <a class="surah" href="quran/041.pdf"> فصلت</a>
-  <a class="surah" href="quran/042.pdf"> الشورى</a>
-  <a class="surah" href="quran/043.pdf"> الزخرف</a>
-  <a class="surah" href="quran/044.pdf"> الدخان</a>
-  <a class="surah" href="quran/045.pdf"> الجاثية</a>
-  <a class="surah" href="quran/046.pdf"> الأحقاف</a>
-  <a class="surah" href="quran/047.pdf"> محمد</a>
-  <a class="surah" href="quran/048.pdf"> الفتح</a>
-  <a class="surah" href="quran/049.pdf"> الحجرات</a>
-  <a class="surah" href="quran/050.pdf"> ق</a>
-  <a class="surah" href="quran/051.pdf"> الذاريات</a>
-  <a class="surah" href="quran/052.pdf"> الطور</a>
-  <a class="surah" href="quran/053.pdf"> النجم</a>
-  <a class="surah" href="quran/054.pdf"> القمر</a>
-  <a class="surah" href="quran/055.pdf"> الرحمن</a>
-  <a class="surah" href="quran/056.pdf"> الواقعة</a>
-  <a class="surah" href="quran/057.pdf"> الحديد</a>
-  <a class="surah" href="quran/058.pdf"> المجادلة</a>
-  <a class="surah" href="quran/059.pdf"> الحشر</a>
-  <a class="surah" href="quran/060.pdf"> الممتحنة</a>
-  <a class="surah" href="quran/061.pdf"> الصف</a>
-  <a class="surah" href="quran/062.pdf"> الجمعة</a>
-  <a class="surah" href="quran/063.pdf"> المنافقون</a>
-  <a class="surah" href="quran/064.pdf"> التغابن</a>
-  <a class="surah" href="quran/065.pdf"> الطلاق</a>
-  <a class="surah" href="quran/066.pdf"> التحريم</a>
-  <a class="surah" href="quran/067.pdf"> الملك</a>
-  <a class="surah" href="quran/068.pdf"> القلم</a>
-  <a class="surah" href="quran/069.pdf"> الحاقة</a>
-  <a class="surah" href="quran/070.pdf"> المعارج</a>
-  <a class="surah" href="quran/071.pdf"> نوح</a>
-  <a class="surah" href="quran/072.pdf"> الجن</a>
-  <a class="surah" href="quran/073.pdf"> المزمل</a>
-  <a class="surah" href="quran/074.pdf"> المدثر</a>
-  <a class="surah" href="quran/075.pdf"> القيامة</a>
-  <a class="surah" href="quran/076.pdf"> الإنسان</a>
-  <a class="surah" href="quran/077.pdf"> المرسلات</a>
-  <a class="surah" href="quran/077.pdf">جزء عم</a>
-
-
-    <!-- أكمل بنفس النمط حتى 114 -->
-
-
+    <!-- نفس أسماء الدالة حرفيًا -->
+    <div class="surah" onclick="openSurah('سورة الفاتحة')">الفاتحة</div>
+    <div class="surah" onclick="openSurah('سورة البقرة')">البقرة</div>
+    <div class="surah" onclick="openSurah('سورة آل عمران')">آل عمران</div>
+    <div class="surah" onclick="openSurah('سورة النساء')">النساء</div>
+    <div class="surah" onclick="openSurah('سورة المائدة')">المائدة</div>
+    <div class="surah" onclick="openSurah('سورة الأنعام')">الأنعام</div>
+    <div class="surah" onclick="openSurah('سورة الأعراف')">الأعراف</div>
+    <div class="surah" onclick="openSurah('سورة الأنفال')">الأنفال</div>
+    <div class="surah" onclick="openSurah('سورة التوبة')">التوبة</div>
+    <div class="surah" onclick="openSurah('سورة يونس')">يونس</div>
+    <div class="surah" onclick="openSurah('سورة هود')">هود</div>
+    <div class="surah" onclick="openSurah('سورة يوسف')">يوسف</div>
+    <div class="surah" onclick="openSurah('سورة الرعد')">الرعد</div>
+    <div class="surah" onclick="openSurah('سورة إبراهيم')">إبراهيم</div>
+    <div class="surah" onclick="openSurah('سورة الحجر')">الحجر</div>
+    <div class="surah" onclick="openSurah('سورة النحل')">النحل</div>
+    <div class="surah" onclick="openSurah('سورة الإسراء')">الإسراء</div>
+    <div class="surah" onclick="openSurah('سورة الكهف')">الكهف</div>
+    <div class="surah" onclick="openSurah('سورة مريم')">مريم</div>
+    <div class="surah" onclick="openSurah('سورة طه')">طه</div>
+    <div class="surah" onclick="openSurah('سورة الأنبياء')">الأنبياء</div>
+    <div class="surah" onclick="openSurah('سورة الحج')">الحج</div>
+    <div class="surah" onclick="openSurah('سورة المؤمنون')">المؤمنون</div>
+    <div class="surah" onclick="openSurah('سورة النور')">النور</div>
+    <div class="surah" onclick="openSurah('سورة الفرقان')">الفرقان</div>
+    <div class="surah" onclick="openSurah('سورة الشعراء')">الشعراء</div>
+    <div class="surah" onclick="openSurah('سورة النمل')">النمل</div>
+    <div class="surah" onclick="openSurah('سورة القصص')">القصص</div>
+    <div class="surah" onclick="openSurah('سورة العنكبوت')">العنكبوت</div>
+    <div class="surah" onclick="openSurah('سورة الروم')">الروم</div>
+    <div class="surah" onclick="openSurah('سورة لقمان')">لقمان</div>
+    <div class="surah" onclick="openSurah('سورة السجدة')">السجدة</div>
+    <div class="surah" onclick="openSurah('سورة الأحزاب')">الأحزاب</div>
+    <div class="surah" onclick="openSurah('سورة سبأ')">سبأ</div>
+    <div class="surah" onclick="openSurah('سورة فاطر')">فاطر</div>
+    <div class="surah" onclick="openSurah('سورة يس')">يس</div>
+    <div class="surah" onclick="openSurah('سورة الصافات')">الصافات</div>
+    <div class="surah" onclick="openSurah('سورة ص')">ص</div>
+    <div class="surah" onclick="openSurah('سورة الزمر')">الزمر</div>
+    <div class="surah" onclick="openSurah('سورة غافر')">غافر</div>
+    <div class="surah" onclick="openSurah('سورة فصلت')">فصلت</div>
+    <div class="surah" onclick="openSurah('سورة الشورى')">الشورى</div>
+    <div class="surah" onclick="openSurah('سورة الزخرف')">الزخرف</div>
+    <div class="surah" onclick="openSurah('سورة الدخان')">الدخان</div>
+    <div class="surah" onclick="openSurah('سورة الجاثية')">الجاثية</div>
+    <div class="surah" onclick="openSurah('سورة الأحقاف')">الأحقاف</div>
+    <div class="surah" onclick="openSurah('سورة محمد')">محمد</div>
+    <div class="surah" onclick="openSurah('سورة الفتح')">الفتح</div>
+    <div class="surah" onclick="openSurah('سورة الحجرات')">الحجرات</div>
+    <div class="surah" onclick="openSurah('سورة ق')">ق</div>
+    <div class="surah" onclick="openSurah('سورة الذاريات')">الذاريات</div>
+    <div class="surah" onclick="openSurah('سورة الطور')">الطور</div>
+    <div class="surah" onclick="openSurah('سورة النجم')">النجم</div>
+    <div class="surah" onclick="openSurah('سورة القمر')">القمر</div>
+    <div class="surah" onclick="openSurah('سورة الرحمن')">الرحمن</div>
+    <div class="surah" onclick="openSurah('سورة الواقعة')">الواقعة</div>
+    <div class="surah" onclick="openSurah('سورة الحديد')">الحديد</div>
+    <div class="surah" onclick="openSurah('سورة المجادلة')">المجادلة</div>
+    <div class="surah" onclick="openSurah('سورة الحشر')">الحشر</div>
+    <div class="surah" onclick="openSurah('سورة الممتحنة')">الممتحنة</div>
+    <div class="surah" onclick="openSurah('سورة الصف')">الصف</div>
+    <div class="surah" onclick="openSurah('سورة الجمعة')">الجمعة</div>
+    <div class="surah" onclick="openSurah('سورة المنافقون')">المنافقون</div>
+    <div class="surah" onclick="openSurah('سورة التغابن')">التغابن</div>
+    <div class="surah" onclick="openSurah('سورة الطلاق')">الطلاق</div>
+    <div class="surah" onclick="openSurah('سورة التحريم')">التحريم</div>
+    <div class="surah" onclick="openSurah('سورة الملك')">الملك</div>
+    <div class="surah" onclick="openSurah('سورة القلم')">القلم</div>
+    <div class="surah" onclick="openSurah('سورة الحاقة')">الحاقة</div>
+    <div class="surah" onclick="openSurah('سورة المعارج')">المعارج</div>
+    <div class="surah" onclick="openSurah('سورة نوح')">نوح</div>
+    <div class="surah" onclick="openSurah('سورة الجن')">الجن</div>
+    <div class="surah" onclick="openSurah('سورة المزمل')">المزمل</div>
+    <div class="surah" onclick="openSurah('سورة المدثر')">المدثر</div>
+    <div class="surah" onclick="openSurah('سورة القيامة')">القيامة</div>
+    <div class="surah" onclick="openSurah('سورة الإنسان')">الإنسان</div>
+    <div class="surah" onclick="openSurah('سورة المرسلات')">المرسلات</div>
+    <div class="surah" onclick="openSurah('جزء عم')">جزء عم</div>
   </div>
+
+  <div id="viewer">
+    <iframe id="pdfFrame"></iframe>
+  </div>
+
 </div>
 
 <footer>
     <a class="surah" href="index.html">العودة للقائمة الرئيسية</a>
 </footer>
+
+<script>
+const SURA_PAGES = {
+  "سورة الفاتحة": [1, 1],
+  "سورة البقرة": [2, 48],
+  "سورة آل عمران": [50, 75],
+  "سورة النساء": [77, 105],
+  "سورة المائدة": [107, 126],
+  "سورة الأنعام": [128, 149],
+  "سورة الأعراف": [157, 175],
+  "سورة الأنفال": [177, 185],
+  "سورة التوبة": [187, 208],
+  "سورة يونس": [210, 220],
+  "سورة هود": [221, 234],
+  "سورة يوسف": [235, 247],
+  "سورة الرعد": [249, 254],
+  "سورة إبراهيم": [255, 260],
+  "سورة الحجر": [262, 266],
+  "سورة النحل": [267, 281],
+  "سورة الإسراء": [282, 292],
+  "سورة الكهف": [293, 303],
+  "سورة مريم": [304, 311],
+  "سورة طه": [312, 320],
+  "سورة الأنبياء": [322, 330],
+  "سورة الحج": [332, 340],
+  "سورة المؤمنون": [342, 348],
+  "سورة النور": [350, 358],
+  "سورة الفرقان": [359, 365],
+  "سورة الشعراء": [367, 375],
+  "سورة النمل": [377, 384],
+  "سورة القصص": [385, 395],
+  "سورة العنكبوت": [396, 403],
+  "سورة الروم": [404, 409],
+  "سورة لقمان": [411, 413],
+  "سورة السجدة": [415, 416],
+  "سورة الأحزاب": [418, 426],
+  "سورة سبأ": [428, 433],
+  "سورة فاطر": [434, 439],
+  "سورة يس": [440, 444],
+  "سورة الصافات": [446, 451],
+  "سورة ص": [453, 457],
+  "سورة الزمر": [458, 466],
+  "سورة غافر": [467, 475],
+  "سورة فصلت": [477, 481],
+  "سورة الشورى": [483, 488],
+  "سورة الزخرف": [489, 494],
+  "سورة الدخان": [496, 497],
+  "سورة الجاثية": [499, 501],
+  "سورة الأحقاف": [502, 505],
+  "سورة محمد": [507, 509],
+  "سورة الفتح": [511, 514],
+  "سورة الحجرات": [515, 516],
+  "سورة ق": [518, 519],
+  "سورة الذاريات": [520, 522],
+  "سورة الطور": [523, 524],
+  "سورة النجم": [526, 527],
+  "سورة القمر": [528, 530],
+  "سورة الرحمن": [531, 533],
+  "سورة الواقعة": [534, 536],
+  "سورة الحديد": [537, 540],
+  "سورة المجادلة": [541, 544],
+  "سورة الحشر": [545, 547],
+  "سورة الممتحنة": [549, 550],
+  "سورة الصف": [551, 551],
+  "سورة الجمعة": [553, 553],
+  "سورة المنافقون": [554, 554],
+  "سورة التغابن": [556, 556],
+  "سورة الطلاق": [558, 558],
+  "سورة التحريم": [560, 560],
+  "سورة الملك": [562, 563],
+  "سورة القلم": [564, 565],
+  "سورة الحاقة": [566, 567],
+  "سورة المعارج": [568, 569],
+  "سورة نوح": [570, 570],
+  "سورة الجن": [572, 572],
+  "سورة المزمل": [574, 574],
+  "سورة المدثر": [575, 576],
+  "سورة القيامة": [577, 577],
+  "سورة الإنسان": [578, 579],
+  "سورة المرسلات": [580, 580],
+  "جزء عم": [582, 603]
+};
+
+function openSurah(name) {
+  const frame = document.getElementById("pdfFrame");
+  const viewer = document.getElementById("viewer");
+
+  const page = SURA_PAGES[name][0];
+
+  // عرض بدون أدوات تحكم
+  frame.src = `quran.pdf#page=${page}&toolbar=0&navpanes=0&scrollbar=0&view=FitH`;
+
+
+  viewer.style.display = "block";
+  viewer.scrollIntoView({ behavior: "smooth" });
+
+}
+</script>
 
 </body>
 </html>
