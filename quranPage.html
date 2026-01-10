@@ -108,6 +108,33 @@
       box-shadow: 0 12px 25px rgba(0,0,0,0.25);
   }
 
+.download-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 12px;
+  background: var(--main-orange);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.2s;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+:root {
+  --main-white: #ffffff;
+}
+
+.download-btn:hover {
+  background: var(--main-white);
+  color: var(--text-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+
 
   </style>
 
@@ -120,12 +147,14 @@
 
 <header>
   <h1>📖 القرآن الكريم</h1>
-  <button class="reload-btn" onclick="window.location.reload();">
-  🔄 تحديث الصفحة
+  <a class="download-btn" href="index.html">العودة للقائمة الرئيسية</a>
 
-</button>
+  <button class="download-btn" onclick="window.location.reload();">تحديث الصفحة</button>
+
+  <a href="quran.pdf" download class="download-btn">تحميل المصحف كاملا</a>
 
 </header>
+
 
 <div class="container">
 
