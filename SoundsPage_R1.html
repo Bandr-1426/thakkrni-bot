@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>صفحه ذكرني</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="icon_thakkrni.jpg">
+
+  <style>
+    :root {
+      --primary: #d66a1f;
+      --secondary: #a94f16;
+      --bg: #f4efe6;
+      --card: #ffffff;
+      --text: #3b2f2f;
+    }
+
+    * { box-sizing: border-box; font-family: "Cairo", sans-serif; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .play-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+
+      /* المهم */
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .play-btn:hover {
+      background: var(--main-white);
+      color: var(--text-dark);
+      transform: translateY(-2px); /* حركة ناعمة */
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    .play-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+    .player {
+      margin-top: 40px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      display: none;
+    }
+:root {
+  --main-white: #ffffff;
+}
+    :root {
+      --main-orange: #d66a1f;
+      --dark-orange: #a94f16;
+      --light-cream: #f4efe6;
+      --soft-cream: #e8dcc6;
+      --text-dark: #3b2a1a;
+    }
+
+    :root{
+  --main:#d66a1f;
+  --dark:#a94f16;
+  --bg:#f4efe6;
+}
+
+.download-btn {
+  padding: 6px 14px;          /* أصغر */
+  border: none;
+  border-radius: 8px;         /* أصغر */
+  background: var(--main-orange);
+  color: #fff;
+  font-size: 14px;            /* أصغر */
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 6px;            /* أصغر */
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* ظل أخف */
+}
+
+.download-btn:hover {
+  background: var(--main-white);
+  color: var(--text-dark);
+  transform: translateY(-2px); /* حركة أخف */
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+.titleReaderName{
+  font-weight: bold;
+
+}
+    audio { width: 100%; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🔉 استماع القرآن الكريم</h1>
+  <p class="titleReaderName"> جميع سور القرآن الكريم بصوت الشيخ عبدالرحمن السديس ( حفظه الله )</p>
+
+  <button class="download-btn" onclick="window.location.reload();">تحديث الصفحة</button>
+  <a class="download-btn" href="index.html">العودة للقائمة الرئيسية</a>
+  <a class="download-btn" href="ReaderPage.html">العودة للقائمة القراء</a>
+
+</header>
+
+<div class="container">
+  <div class="grid" id="surahList"></div>
+
+  <div class="player" id="player">
+    <h3 id="currentSurah"></h3>
+    <audio id="audioPlayer" controls></audio>
+  </div>
+</div>
+
+<script>
+  const surahs = [
+  { name: "سورة الفاتحة", file: "001.mp3" },
+  { name: "سورة البقرة", file: "002.mp3" },
+  { name: "سورة آل عمران", file: "003.mp3" },
+  { name: "سورة النساء", file: "004.mp3" },
+  { name: "سورة المائدة", file: "005.mp3" },
+  { name: "سورة الأنعام", file: "006.mp3" },
+  { name: "سورة الأعراف", file: "007.mp3" },
+  { name: "سورة الأنفال", file: "008.mp3" },
+  { name: "سورة التوبة", file: "009.mp3" },
+  { name: "سورة يونس", file: "010.mp3" },
+  { name: "سورة هود", file: "011.mp3" },
+  { name: "سورة يوسف", file: "012.mp3" },
+  { name: "سورة الرعد", file: "013.mp3" },
+  { name: "سورة إبراهيم", file: "014.mp3" },
+  { name: "سورة الحجر", file: "015.mp3" },
+  { name: "سورة النحل", file: "016.mp3" },
+  { name: "سورة الإسراء", file: "017.mp3" },
+  { name: "سورة الكهف", file: "018.mp3" },
+  { name: "سورة مريم", file: "019.mp3" },
+  { name: "سورة طه", file: "020.mp3" },
+  { name: "سورة الأنبياء", file: "021.mp3" },
+  { name: "سورة الحج", file: "022.mp3" },
+  { name: "سورة المؤمنون", file: "023.mp3" },
+  { name: "سورة النور", file: "024.mp3" },
+  { name: "سورة الفرقان", file: "025.mp3" },
+  { name: "سورة الشعراء", file: "026.mp3" },
+  { name: "سورة النمل", file: "027.mp3" },
+  { name: "سورة القصص", file: "028.mp3" },
+  { name: "سورة العنكبوت", file: "029.mp3" },
+  { name: "سورة الروم", file: "030.mp3" },
+  { name: "سورة لقمان", file: "031.mp3" },
+  { name: "سورة السجدة", file: "032.mp3" },
+  { name: "سورة الأحزاب", file: "033.mp3" },
+  { name: "سورة سبأ", file: "034.mp3" },
+  { name: "سورة فاطر", file: "035.mp3" },
+  { name: "سورة يس", file: "036.mp3" },
+  { name: "سورة الصافات", file: "037.mp3" },
+  { name: "سورة ص", file: "038.mp3" },
+  { name: "سورة الزمر", file: "039.mp3" },
+  { name: "سورة غافر", file: "040.mp3" },
+  { name: "سورة فصلت", file: "041.mp3" },
+  { name: "سورة الشورى", file: "042.mp3" },
+  { name: "سورة الزخرف", file: "043.mp3" },
+  { name: "سورة الدخان", file: "044.mp3" },
+  { name: "سورة الجاثية", file: "045.mp3" },
+  { name: "سورة الأحقاف", file: "046.mp3" },
+  { name: "سورة محمد", file: "047.mp3" },
+  { name: "سورة الفتح", file: "048.mp3" },
+  { name: "سورة الحجرات", file: "049.mp3" },
+  { name: "سورة ق", file: "050.mp3" },
+  { name: "سورة الذاريات", file: "051.mp3" },
+  { name: "سورة الطور", file: "052.mp3" },
+  { name: "سورة النجم", file: "053.mp3" },
+  { name: "سورة القمر", file: "054.mp3" },
+  { name: "سورة الرحمن", file: "055.mp3" },
+  { name: "سورة الواقعة", file: "056.mp3" },
+  { name: "سورة الحديد", file: "057.mp3" },
+  { name: "سورة المجادلة", file: "058.mp3" },
+  { name: "سورة الحشر", file: "059.mp3" },
+  { name: "سورة الممتحنة", file: "060.mp3" },
+  { name: "سورة الصف", file: "061.mp3" },
+  { name: "سورة الجمعة", file: "062.mp3" },
+  { name: "سورة المنافقون", file: "063.mp3" },
+  { name: "سورة التغابن", file: "064.mp3" },
+  { name: "سورة الطلاق", file: "065.mp3" },
+  { name: "سورة التحريم", file: "066.mp3" },
+  { name: "سورة الملك", file: "067.mp3" },
+  { name: "سورة القلم", file: "068.mp3" },
+  { name: "سورة الحاقة", file: "069.mp3" },
+  { name: "سورة المعارج", file: "070.mp3" },
+  { name: "سورة نوح", file: "071.mp3" },
+  { name: "سورة الجن", file: "072.mp3" },
+  { name: "سورة المزمل", file: "073.mp3" },
+  { name: "سورة المدثر", file: "074.mp3" },
+  { name: "سورة القيامة", file: "075.mp3" },
+  { name: "سورة الإنسان", file: "076.mp3" },
+  { name: "سورة المرسلات", file: "077.mp3" },
+  { name: "سورة النبأ", file: "078.mp3" },
+  { name: "سورة النازعات", file: "079.mp3" },
+  { name: "سورة عبس", file: "080.mp3" },
+  { name: "سورة التكوير", file: "081.mp3" },
+  { name: "سورة الانفطار", file: "082.mp3" },
+  { name: "سورة المطففين", file: "083.mp3" },
+  { name: "سورة الانشقاق", file: "084.mp3" },
+  { name: "سورة البروج", file: "085.mp3" },
+  { name: "سورة الطارق", file: "086.mp3" },
+  { name: "سورة الأعلى", file: "087.mp3" },
+  { name: "سورة الغاشية", file: "088.mp3" },
+  { name: "سورة الفجر", file: "089.mp3" },
+  { name: "سورة البلد", file: "090.mp3" },
+  { name: "سورة الشمس", file: "091.mp3" },
+  { name: "سورة الليل", file: "092.mp3" },
+  { name: "سورة الضحى", file: "093.mp3" },
+  { name: "سورة الشرح", file: "094.mp3" },
+  { name: "سورة التين", file: "095.mp3" },
+  { name: "سورة العلق", file: "096.mp3" },
+  { name: "سورة القدر", file: "097.mp3" },
+  { name: "سورة البينة", file: "098.mp3" },
+  { name: "سورة الزلزلة", file: "099.mp3" },
+  { name: "سورة العاديات", file: "100.mp3" },
+  { name: "سورة القارعة", file: "101.mp3" },
+  { name: "سورة التكاثر", file: "102.mp3" },
+  { name: "سورة العصر", file: "103.mp3" },
+  { name: "سورة الهمزة", file: "104.mp3" },
+  { name: "سورة الفيل", file: "105.mp3" },
+  { name: "سورة قريش", file: "106.mp3" },
+  { name: "سورة الماعون", file: "107.mp3" },
+  { name: "سورة الكوثر", file: "108.mp3" },
+  { name: "سورة الكافرون", file: "109.mp3" },
+  { name: "سورة النصر", file: "110.mp3" },
+  { name: "سورة المسد", file: "111.mp3" },
+  { name: "سورة الإخلاص", file: "112.mp3" },
+  { name: "سورة الفلق", file: "113.mp3" },
+  { name: "سورة الناس", file: "114.mp3" }
+];
+
+
+  const list = document.getElementById("surahList");
+  const player = document.getElementById("player");
+  const audio = document.getElementById("audioPlayer");
+  const title = document.getElementById("currentSurah");
+
+  surahs.forEach(surah => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <h4>${surah.name}</h4>
+      <button class="play-btn">▶ استماع</button>
+    `;
+
+    card.querySelector("button").onclick = () => {
+      title.textContent = surah.name;
+      audio.src = "audio/R1/" + surah.file;
+      audio.play();
+      player.style.display = "block";
+    };
+
+    list.appendChild(card);
+  });
+</script>
+
+<style>
+   footer {
+      text-align: center;
+      padding: 35px;
+      background: var(--dark-orange);
+      color: #fff;
+      font-size: 14px;
+    }
+      .feature-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: var(--main-orange);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .feature-btn:hover {
+        background: var(--main-wight); /* الخلفية تصير برتقالي */
+        color:  var(--main-orange); /* الخط يصير أبيض */
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    }
+</style>
+  <footer>
+
+    © 2026 بوت ذكرني – جميع الحقوق محفوظة
+  </footer>
+
+</body>
+</html>
